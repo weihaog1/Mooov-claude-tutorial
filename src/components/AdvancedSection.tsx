@@ -271,7 +271,35 @@ function FeatureBlock({
 
       {/* Groups */}
       {feature.groups.map((group) => (
-        <div key={group.title} className="glass-card rounded-2xl p-5 mt-4">
+        <div key={group.title} className="glass-card rounded-2xl p-5 mt-4 relative">
+          {group.link && (
+            <a
+              href={group.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold transition-all duration-300 hover:brightness-125"
+              style={{
+                background: "rgba(203,154,118,0.15)",
+                border: "1px solid rgba(203,154,118,0.3)",
+                color: "#CB9A76",
+              }}
+            >
+              Read More
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          )}
           <p
             className="text-sm font-bold"
             style={{ color: feature.accentColor }}

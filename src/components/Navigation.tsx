@@ -8,7 +8,6 @@ const navItems = [
   { id: "comparison", label: "Comparison", num: "03" },
   { id: "prompts", label: "Prompts", num: "04" },
   { id: "advanced", label: "Advanced", num: "05" },
-  { id: "cases", label: "Cases", num: "06" },
 ];
 
 export default function Navigation() {

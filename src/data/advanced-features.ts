@@ -1,6 +1,7 @@
 export interface AdvancedFeatureGroup {
   title: string;
   bullets: string[];
+  link?: string;
 }
 
 export interface AdvancedFeatureStat {
@@ -38,6 +39,7 @@ export const advancedFeatures: AdvancedFeature[] = [
     groups: [
       {
         title: "Claude Code + Figma 设计到代码",
+        link: "https://www.figma.com/blog/introducing-claude-code-to-figma/",
         bullets: [
           "**Mooov实践：从Figma设计稿到完全实现的Web UI仅需1小时，设计还原度100%。**",
           "Figma MCP Server让Claude Code直接读取设计稿，理解设计意图、组件结构、样式规范。",
@@ -47,6 +49,7 @@ export const advancedFeatures: AdvancedFeature[] = [
       },
       {
         title: "Sub-Agents / Agent Teams - 多Agent协作",
+        link: "https://code.claude.com/docs/en/agent-teams",
         bullets: [
           "Claude Code支持生成多个Sub-Agent，每个Agent专注于特定任务并行工作。",
           "Team Lead Agent负责任务分解和协调，Worker Agents执行具体任务。",
@@ -57,6 +60,7 @@ export const advancedFeatures: AdvancedFeature[] = [
       },
       {
         title: "工程化使用方式 - Skills/Hooks/MCP",
+        link: "https://www.reddit.com/r/ClaudeAI/comments/1qe239d/the_complete_guide_to_claude_code_v3_lsp_claudemd/",
         bullets: [
           "Skills：可复用的\"技能包\"，包含SKILL.md描述文件和配套脚本/模板，支持Prompt模板、工具限制和模型选择。",
           "Hooks：确定性代码钩子，绑定特定事件（如编辑后自动格式化、提交前自动lint）。",
@@ -82,6 +86,7 @@ export const advancedFeatures: AdvancedFeature[] = [
     groups: [
       {
         title: "核心能力",
+        link: "https://claude.com/product/cowork",
         bullets: [
           "直接文件访问：可读写本地文件，无需手动上传下载；可分析桌面Excel并直接输出清洗后的新文件。",
           "自主任务执行：你描述目标后它独立完成，例如自动读取10份客户反馈并生成总结PPT。",
@@ -107,6 +112,7 @@ export const advancedFeatures: AdvancedFeature[] = [
     groups: [
       {
         title: "场景能力",
+        link: "https://support.claude.com/en/articles/13521390-use-claude-in-powerpoint",
         bullets: [
           "PowerPoint自动生成：输入主题和大纲，自动生成完整PPT（排版、配色、图表占位符），支持企业模板和品牌色。",
           "Excel深度分析：理解数据结构，创建透视分析、复杂公式（VLOOKUP/INDEX-MATCH/条件汇总），并输出带公式的新文件。",
