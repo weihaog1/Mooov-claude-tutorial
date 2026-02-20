@@ -6,6 +6,7 @@ export interface CaseStudy {
   extendedDescription?: string;
   stats?: { label: string; value: string }[];
   link?: string;
+  image?: string;
   accentColor: string;
 }
 
@@ -15,7 +16,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Mooov 风控模块开发",
     category: "Mooov 实践",
     description:
-      "使用Claude Code开发完整的风控模块系统。从需求分析、架构设计、代码实现到测试部署，全流程由AI辅助完成。原本需要3-5人团队数周完成的工作量，由Alan单人在一个月内交付。",
+      "使用Claude Code开发完整的风控模块系统。从需求分析、架构设计、代码实现到测试部署，全流程由AI辅助完成。原本需要3-5人团队数周完成的工作量。",
     extendedDescription:
       "Claude Code能够理解整个代码库上下文，进行跨文件重构，自动编写测试用例。",
     stats: [
@@ -34,6 +35,7 @@ export const caseStudies: CaseStudy[] = [
     extendedDescription:
       "组件包含正确的响应式布局、动画效果和交互逻辑。项目集成了Mapbox API，在多种设计方案中进行了快速实验与迭代。",
     link: "https://mooov-mapbox-ui.vercel.app/",
+    image: "/Mooov-UI-design.png",
     stats: [
       { label: "从设计到上线", value: "1hr" },
       { label: "设计还原度", value: "100%" },

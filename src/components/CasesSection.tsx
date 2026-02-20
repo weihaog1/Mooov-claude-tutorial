@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { caseStudies } from "@/data/case-studies";
 import { useInView } from "@/components/useInView";
 
@@ -116,6 +117,22 @@ export default function CasesSection() {
                   >
                     {study.extendedDescription}
                   </p>
+                )}
+
+                {/* Screenshot */}
+                {study.image && (
+                  <div
+                    className="mt-4 rounded-xl overflow-hidden"
+                    style={{ border: "1px solid rgba(203,154,118,0.15)" }}
+                  >
+                    <Image
+                      src={study.image}
+                      alt={study.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  </div>
                 )}
 
                 {/* External link */}
