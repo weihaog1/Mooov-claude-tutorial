@@ -210,6 +210,21 @@ function ComparisonPanel({
           >
             {item.categoryEn}
           </p>
+
+          {/* Recommended model badge */}
+          <div className="mt-2">
+            <span
+              className="rounded-full px-4 py-2 text-sm font-bold inline-block"
+              style={{
+                backgroundColor: `${item.accentColor}30`,
+                border: `1px solid ${item.accentColor}55`,
+                color: item.accentColor,
+              }}
+            >
+              Recommended: {item.recommendedModel}
+            </span>
+          </div>
+
           <p
             className="text-sm leading-relaxed max-w-xl"
             style={{ color: "rgba(244,243,238,0.75)" }}
@@ -228,19 +243,6 @@ function ComparisonPanel({
               }}
             >
               {item.useCases}
-            </span>
-          </div>
-
-          {/* Recommended model badge */}
-          <div className="mt-1">
-            <span
-              className="rounded-full px-4 py-2 text-sm font-semibold inline-block"
-              style={{
-                backgroundColor: `${item.accentColor}1F`,
-                color: item.accentColor,
-              }}
-            >
-              {item.recommendedModel}
             </span>
           </div>
         </div>
@@ -341,9 +343,10 @@ function MobileComparisonCard({
           </p>
         </div>
         <span
-          className="inline-flex rounded-full px-2.5 py-1 text-[10px] font-semibold"
+          className="inline-flex rounded-full px-3 py-1.5 text-[11px] font-bold"
           style={{
-            background: `${item.accentColor}20`,
+            background: `${item.accentColor}30`,
+            border: `1px solid ${item.accentColor}55`,
             color: item.accentColor,
           }}
         >

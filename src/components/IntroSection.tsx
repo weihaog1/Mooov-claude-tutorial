@@ -59,7 +59,7 @@ const plans = [
   {
     name: "Pro",
     price: "$20/月",
-    usage: "",
+    usage: "推荐：轻量文本类工作",
     features: [
       "全部模型(含Opus 4.6)",
       "Claude Code + Projects",
@@ -71,7 +71,7 @@ const plans = [
   {
     name: "Max",
     price: "$100-200/月",
-    usage: "5-20x Pro用量",
+    usage: "推荐：软件开发、数据分析、深度研究、Agent能力",
     features: [
       "Pro全部功能",
       "持久记忆",
@@ -82,7 +82,7 @@ const plans = [
   },
   {
     name: "Team",
-    price: "$25-150/人/月",
+    price: "$25-125/人/月",
     usage: "高于Pro",
     features: [
       "Pro全部功能",

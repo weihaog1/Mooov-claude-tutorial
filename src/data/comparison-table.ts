@@ -15,7 +15,7 @@ export const comparisonData: ComparisonRow[] = [
     category: "文档/内容创作",
     categoryEn: "Content Creation",
     description:
-      "营销文案、报告撰写、邮件起草、技术文档、社交媒体内容、公众号文章、小红书笔记。Claude在中文内容创作中表现出色，研究显示中文提示词的有效率达92.3%（高于英文的81.0%），且能理解中国社交媒体平台的语气和风格。",
+      "营销文案、报告撰写、邮件起草、技术文档、社交媒体内容、公众号文章、小红书笔记。关键技巧：用你期望输出的语言来写提示词。想要中文输出就用中文提示，想要英文输出就用英文提示。Claude能理解中国社交媒体平台的语气和风格，直接用中文下达指令效果最佳。",
     useCases: "营销文案 / 社媒内容 / 报告撰写 / 技术文档",
     recommendedModel: "Claude",
     promptEn:
@@ -41,7 +41,7 @@ export const comparisonData: ComparisonRow[] = [
     category: "图片生成",
     categoryEn: "Image Generation",
     description:
-      "产品图设计、社交媒体配图、品牌视觉素材、PPT插图、营销海报。Claude本身不生成图片，但可以辅助撰写精准的图片生成提示词。主流图片生成工具各有特长：DALL-E 3文字渲染最精准、Midjourney艺术品质最高、Stable Diffusion可本地私有化部署。中国本土工具如通义万相（阿里巴巴）性价比高，文心一格（百度）擅长国风设计。",
+      "产品图设计、社交媒体配图、品牌视觉素材、PPT插图、营销海报。Claude本身不生成图片，但可以辅助撰写精准的图片生成提示词。推荐使用Google的Imagen系列模型，图片质量和文字渲染能力均属顶尖。国产模型同样表现强劲，如字节跳动的Seedance 2.0在视频和图像生成领域已达到世界一流水平。",
     useCases: "产品图 / 海报 / 视觉素材 / 演示插图",
     recommendedModel: "Google Nano Banana Pro",
     promptEn:
@@ -80,7 +80,7 @@ export const comparisonData: ComparisonRow[] = [
     category: "学习与教育辅助",
     categoryEn: "Learning & Education",
     description:
-      "概念解释、知识测验、学习路线规划、论文辅导、技术文档理解、新领域快速入门。Claude善于将复杂概念分层次讲解，支持苏格拉底式教学法，可以根据学习者水平调整解释深度。特别适合技术概念的中文化解释和跨领域知识迁移。",
+      "概念解释、知识测验、学习路线规划、论文辅导、技术文档理解、新领域快速入门。Claude善于将复杂概念分层次讲解，支持苏格拉底式教学法，可以根据学习者水平调整解释深度。特别适合技术概念的中文化解释和跨领域知识迁移。Gemini默认支持1M上下文窗口，适合一次性输入大量学习材料进行综合理解。",
     useCases: "概念解释 / 学习规划 / 知识测验 / 跨领域入门",
     recommendedModel: "Claude / Gemini",
     promptEn:
