@@ -81,14 +81,4 @@ export const sections: Section[] = [
       { id: "advanced-workflow", title: "工作流设计" },
     ],
   },
-  {
-    id: "cases",
-    number: "06",
-    title: "实战案例",
-    subtitle: "Case Studies",
-    subsections: [
-      { id: "cases-mooov", title: "Mooov 实践" },
-      { id: "cases-business", title: "商业应用" },
-    ],
-  },
 ];

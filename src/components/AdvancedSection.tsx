@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { advancedFeatures } from "@/data/advanced-features";
+import { caseStudies } from "@/data/case-studies";
 import { useInView } from "@/components/useInView";
 
 const youtubeVideos: Record<string, { url: string; title: string }[]> = {
@@ -347,17 +349,129 @@ function FeatureBlock({
   );
 
   return (
-    <div ref={ref} className="grid grid-cols-1 xl:grid-cols-2 gap-10">
-      {isEven ? (
-        <>
-          {contentColumn}
-          {visualColumn}
-        </>
-      ) : (
-        <>
-          {visualColumn}
-          {contentColumn}
-        </>
+    <div ref={ref}>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
+        {isEven ? (
+          <>
+            {contentColumn}
+            {visualColumn}
+          </>
+        ) : (
+          <>
+            {visualColumn}
+            {contentColumn}
+          </>
+        )}
+      </div>
+
+      {/* Case studies - full width under claude-code feature */}
+      {feature.id === "claude-code" && (
+        <div className={`mt-10 ${isVisible ? "animate-fade-up stagger-4" : "opacity-0"}`}>
+          <p
+            className="text-xs font-semibold uppercase tracking-[0.2em]"
+            style={{ color: "rgba(244,243,238,0.5)" }}
+          >
+            实际案例 / Case Studies
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {caseStudies.map((study) => (
+              <div
+                key={study.id}
+                className="glass-card rounded-2xl p-5 relative overflow-hidden"
+              >
+                <div
+                  className="absolute top-0 left-0 h-[2px] w-full"
+                  style={{ background: study.accentColor }}
+                />
+                <h4
+                  className="text-base font-bold mb-2"
+                  style={{ color: "#F4F3EE" }}
+                >
+                  {study.title}
+                </h4>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "rgba(244,243,238,0.75)" }}
+                >
+                  {study.description}
+                </p>
+                {study.extendedDescription && (
+                  <p
+                    className="text-sm leading-relaxed mt-2"
+                    style={{ color: "rgba(244,243,238,0.75)" }}
+                  >
+                    {study.extendedDescription}
+                  </p>
+                )}
+                {study.image && (
+                  <div
+                    className="mt-3 rounded-xl overflow-hidden"
+                    style={{ border: "1px solid rgba(203,154,118,0.15)" }}
+                  >
+                    <Image
+                      src={study.image}
+                      alt={study.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                )}
+                {study.link && (
+                  <a
+                    href={study.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold mt-3 transition-opacity hover:opacity-80"
+                    style={{ color: study.accentColor }}
+                  >
+                    <span>View Live</span>
+                    <svg
+                      className="w-3.5 h-3.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </a>
+                )}
+                {study.stats && study.stats.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {study.stats.map((stat) => (
+                      <span
+                        key={stat.label}
+                        className="rounded-full px-3 py-1.5"
+                        style={{
+                          border: `1px solid ${study.accentColor}4D`,
+                          backgroundColor: `${study.accentColor}14`,
+                        }}
+                      >
+                        <span
+                          className="text-[11px] font-semibold"
+                          style={{ color: study.accentColor }}
+                        >
+                          {stat.label}{" "}
+                        </span>
+                        <span
+                          className="text-[11px] font-semibold"
+                          style={{ color: "#F4F3EE" }}
+                        >
+                          {stat.value}
+                        </span>
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );

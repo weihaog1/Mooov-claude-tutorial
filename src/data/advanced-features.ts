@@ -64,14 +64,6 @@ export const advancedFeatures: AdvancedFeature[] = [
           "Plugins：将Skills、Hooks、MCP Server打包为可分发插件单元，一键安装扩展能力。",
         ],
       },
-      {
-        title: "Mooov 工程实践案例",
-        bullets: [
-          "风控模块开发：原本需要完整团队数周完成的工作量，开发效率提升5-10倍。",
-          "NextGen风控系统：计划将Claude Code作为下一代风控系统的智能大脑和Agentic核心，利用Skills体系构建可复用Agent技能包。",
-          "UI快速实现：从Figma设计稿到完全实现的Web UI（含新功能开发）仅需1小时，自动生成符合设计系统的组件代码。",
-        ],
-      },
     ],
     stats: [
       { label: "开发效率提升", value: "10x", color: "#D97757" },

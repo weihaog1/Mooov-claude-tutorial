@@ -5,7 +5,6 @@ import IntroSection from "@/components/IntroSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import PromptSection from "@/components/PromptSection";
 import AdvancedSection from "@/components/AdvancedSection";
-import CasesSection from "@/components/CasesSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -24,8 +23,6 @@ export default function Home() {
         <PromptSection />
         <div className="section-divider" />
         <AdvancedSection />
-        <div className="section-divider" />
-        <CasesSection />
       </main>
       <Footer />
     </>

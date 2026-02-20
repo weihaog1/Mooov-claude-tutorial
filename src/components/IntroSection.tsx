@@ -52,8 +52,8 @@ const plans = [
   {
     name: "Free",
     price: "$0",
-    usage: "~30-100消息/天",
-    features: ["基础对话", "有限用量", "Sonnet模型", "无Projects功能"],
+    usage: "",
+    features: ["基础对话", "有限用量", "Sonnet模型", "无进阶功能"],
     highlight: false,
   },
   {
@@ -78,7 +78,7 @@ const plans = [
       "新功能优先体验",
       "高峰期优先访问 + 更高输出限制",
     ],
-    highlight: false,
+    highlight: true,
   },
   {
     name: "Team",
@@ -414,7 +414,7 @@ export default function IntroSection() {
                 {/* Usage */}
                 {plan.usage && (
                   <p
-                    className="text-xs mt-1"
+                    className="text-xs mt-1 font-semibold"
                     style={{ color: "rgba(244,243,238,0.5)" }}
                   >
                     {plan.usage}

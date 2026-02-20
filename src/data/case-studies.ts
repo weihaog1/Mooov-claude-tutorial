@@ -1,7 +1,7 @@
 export interface CaseStudy {
   id: string;
   title: string;
-  category: "Mooov 实践" | "商业应用";
+  category: "Mooov 实践";
   description: string;
   extendedDescription?: string;
   stats?: { label: string; value: string }[];
@@ -71,50 +71,5 @@ export const caseStudies: CaseStudy[] = [
       { label: "人员投入", value: "1人" },
     ],
     accentColor: "#D97757",
-  },
-  {
-    id: "content-creation",
-    title: "AI内容创作与社交运营",
-    category: "商业应用",
-    description:
-      "企业使用AI进行营销文案、社交媒体内容、技术文档的批量生成。小红书运营中，AI可在5分钟内生成30条图文笔记，但需遵守平台60%原创度要求。",
-    extendedDescription:
-      "微信公众号长文、抖音短视频脚本、产品说明书等均可通过角色扮演+结构化Prompt实现批量高质量生产。通过xiaohongshu-mcp工具，还可实现自动发布、趋势监控和互动管理。",
-    stats: [
-      { label: "内容效率", value: "3-5x" },
-      { label: "小红书", value: "5min/30条" },
-      { label: "平台", value: "小红书+微信+抖音" },
-    ],
-    accentColor: "#D97757",
-  },
-  {
-    id: "ai-risk",
-    title: "AI金融风控",
-    category: "商业应用",
-    description:
-      "蚂蚁集团AlphaRisk系统将支付宝资损率控制在亿分之0.98以下（远低于行业平均），不良贷款识别准确率超95%。蚁盾\"知识交互建模引擎\"10分钟即可定制AI风控模型。",
-    extendedDescription:
-      "京东科技与工商银行共建智慧供应链金融平台，服务中小微企业超50万家。AI风控正从辅助工具演变为系统核心基础设施。",
-    stats: [
-      { label: "资损率", value: "<亿分之0.98" },
-      { label: "识别准确率", value: "95%+" },
-      { label: "模型定制", value: "10分钟" },
-    ],
-    accentColor: "#C15F3C",
-  },
-  {
-    id: "office-automation",
-    title: "智能办公自动化",
-    category: "商业应用",
-    description:
-      "中国协同办公市场2025年预计达4148亿元。钉钉AI Table已有30万+企业用户，支持80+AI字段模板和30+方言识别。飞书AI矩阵覆盖知识问答、多维表格、对话式业务搭建。",
-    extendedDescription:
-      "WPS AI全产品线集成。行业数据显示：AI文档处理成本降低40%、周转时间缩短70%、北森AI招聘Agent将平均招聘周期从28天压缩至17天（效率提升40%）。",
-    stats: [
-      { label: "市场规模", value: "4148亿" },
-      { label: "成本降低", value: "40%" },
-      { label: "时间缩短", value: "70%" },
-    ],
-    accentColor: "#6A9BCC",
   },
 ];

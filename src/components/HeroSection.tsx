@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import GradientText from "@/components/GradientText";
 
 export default function HeroSection() {
   return (
@@ -79,7 +80,11 @@ export default function HeroSection() {
               color: "#CB9A76",
             }}
           >
-            驾驭 Claude/AI
+            驾驭 <GradientText
+              colors={["#CB9A76", "#D97757", "#E8B89A", "#C15F3C", "#CB9A76"]}
+              animationSpeed={6}
+              direction="horizontal"
+            >Claude/AI</GradientText>
           </h1>
           <p
             className="font-serif font-bold leading-tight mt-2 animate-hero-reveal stagger-2"
