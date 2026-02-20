@@ -153,7 +153,7 @@ export default function IntroSection() {
               className="text-sm leading-relaxed"
               style={{ color: "rgba(244,243,238,0.75)" }}
             >
-              在全球最权威的AI模型盲测排行榜Chatbot Arena中，Claude系列模型持续位居前列。Arena采用真实用户双盲投票机制，是目前最客观的AI能力评估平台。Claude在编程、推理、写作等核心能力维度上表现卓越，是Mooov团队推荐的首选AI工具。
+              在全球最权威的AI模型盲测排行榜Chatbot Arena中，Claude系列模型持续位居前列。Arena采用真实用户双盲投票机制，是目前最客观的AI能力评估平台。Claude在编程、推理、写作等核心能力维度上表现卓越。
             </p>
 
             <a
