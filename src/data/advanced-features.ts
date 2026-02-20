@@ -116,8 +116,6 @@ export const advancedFeatures: AdvancedFeature[] = [
         bullets: [
           "PowerPoint自动生成：输入主题和大纲，自动生成完整PPT（排版、配色、图表占位符），支持企业模板和品牌色。",
           "Excel深度分析：理解数据结构，创建透视分析、复杂公式（VLOOKUP/INDEX-MATCH/条件汇总），并输出带公式的新文件。",
-          "Word文档协作：自动生成目录、页眉页脚、标题分级、表格和引用，支持多轮迭代修改。",
-          "PDF处理：读取PDF总结、合并拆分文件、填写PDF表单。",
         ],
       },
     ],
