@@ -39,10 +39,10 @@ export const advancedFeatures: AdvancedFeature[] = [
       {
         title: "Claude Code + Figma 设计到代码",
         bullets: [
+          "**Mooov实践：从Figma设计稿到完全实现的Web UI仅需1小时，设计还原度100%。**",
           "Figma MCP Server让Claude Code直接读取设计稿，理解设计意图、组件结构、样式规范。",
           "2026年2月17日Figma官方发布\"Code to Canvas\"功能：Claude Code生成的UI可以反向转化为可编辑的Figma设计稿。",
           "实现真正的双向工作流：Figma设计 -> Claude Code生成代码 -> 运行中的UI回传Figma -> 设计师在Figma上调整 -> 更新推回代码。",
-          "Mooov实践：从Figma设计稿到完全实现的Web UI仅需1小时，设计还原度99%。",
         ],
       },
       {

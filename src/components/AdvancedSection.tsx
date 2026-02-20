@@ -287,7 +287,13 @@ function FeatureBlock({
                   className="text-sm leading-relaxed"
                   style={{ color: "rgba(244,243,238,0.75)" }}
                 >
-                  {bullet}
+                  {bullet.startsWith("**") && bullet.endsWith("**") ? (
+                    <strong style={{ color: "#F4F3EE" }}>
+                      {bullet.slice(2, -2)}
+                    </strong>
+                  ) : (
+                    bullet
+                  )}
                 </span>
               </li>
             ))}
