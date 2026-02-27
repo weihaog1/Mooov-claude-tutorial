@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { tutorials } from "@/data/tutorials";
+import LanguageToggle from "@/components/LanguageToggle";
 
-const navItems = [
+const defaultNavItems = [
   { id: "setup", label: "Setup", num: "01" },
   { id: "intro", label: "Claude", num: "02" },
   { id: "comparison", label: "Comparison", num: "03" },
@@ -10,8 +13,21 @@ const navItems = [
   { id: "advanced", label: "Advanced", num: "05" },
 ];
 
-export default function Navigation() {
+interface NavItem {
+  id: string;
+  label: string;
+  num: string;
+}
+
+export default function Navigation({ navItems, showLanguageToggle }: { navItems?: NavItem[]; showLanguageToggle?: boolean } = {}) {
   const [activeSection, setActiveSection] = useState<string>("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  const currentTutorial =
+    tutorials.find((t) => t.path === pathname) || tutorials[0];
+  const items = navItems ?? defaultNavItems;
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -25,7 +41,7 @@ export default function Navigation() {
   );
 
   useEffect(() => {
-    const sectionEls = navItems
+    const sectionEls = items
       .map((item) => document.getElementById(item.id))
       .filter(Boolean) as HTMLElement[];
 
@@ -51,6 +67,19 @@ export default function Navigation() {
     sectionEls.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
+  }, [items]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -86,6 +115,90 @@ export default function Navigation() {
           </svg>
         </a>
 
+        {/* Tutorial dropdown */}
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs tracking-wide transition-colors duration-200 cursor-pointer"
+            style={{
+              color: isDropdownOpen
+                ? "#CB9A76"
+                : "rgba(244, 243, 238, 0.5)",
+              background: isDropdownOpen
+                ? "rgba(203, 154, 118, 0.1)"
+                : "transparent",
+            }}
+          >
+            <span>{currentTutorial.date}</span>
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              className="transition-transform duration-200"
+              style={{
+                transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+              }}
+            >
+              <path
+                d="M2.5 4L5 6.5L7.5 4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          {isDropdownOpen && (
+            <div
+              className="absolute top-full left-0 mt-3 min-w-[200px] rounded-xl py-1.5 overflow-hidden"
+              style={{
+                background: "rgba(25, 25, 25, 0.95)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                border: "1px solid rgba(203, 154, 118, 0.15)",
+              }}
+            >
+              {tutorials.map((tutorial) => {
+                const isActive = tutorial.path === pathname;
+                return (
+                  <a
+                    key={tutorial.id}
+                    href={tutorial.path}
+                    className="flex items-center gap-3 px-4 py-2.5 text-xs tracking-wide transition-colors duration-200"
+                    style={{
+                      color: isActive
+                        ? "#CB9A76"
+                        : "rgba(244, 243, 238, 0.5)",
+                      background: isActive
+                        ? "rgba(203, 154, 118, 0.08)"
+                        : "transparent",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background =
+                          "rgba(203, 154, 118, 0.06)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background = "transparent";
+                      }
+                    }}
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <span className="font-medium whitespace-nowrap">
+                      {tutorial.date}
+                    </span>
+                    <span className="opacity-60">{tutorial.title}</span>
+                  </a>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         {/* Separator */}
         <div
           className="hidden md:block w-px h-4 mr-3"
@@ -94,7 +207,7 @@ export default function Navigation() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-1">
-          {navItems.map((item) => {
+          {items.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <a
@@ -123,7 +236,7 @@ export default function Navigation() {
 
         {/* Mobile dots */}
         <div className="flex md:hidden items-center gap-2">
-          {navItems.map((item) => {
+          {items.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <a
@@ -146,6 +259,19 @@ export default function Navigation() {
             );
           })}
         </div>
+
+        {/* Language toggle */}
+        {showLanguageToggle && (
+          <>
+            <div
+              className="w-px h-4 ml-2"
+              style={{ background: "rgba(203, 154, 118, 0.2)" }}
+            />
+            <div className="ml-1">
+              <LanguageToggle />
+            </div>
+          </>
+        )}
       </div>
     </nav>
   );
