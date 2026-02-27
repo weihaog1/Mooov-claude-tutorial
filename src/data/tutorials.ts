@@ -18,4 +18,10 @@ export const tutorials: Tutorial[] = [
     title: "Building Skills",
     path: "/session-2",
   },
+  {
+    id: "session-3",
+    date: "Mar 5",
+    title: "Prompt Engineering",
+    path: "/session-3",
+  },
 ];
